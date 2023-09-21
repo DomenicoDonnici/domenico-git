@@ -1,0 +1,50 @@
+<!-- 1° file codice HTML scritto direttamente -->
+
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Form HTML</title>
+  </head>
+  <body>
+    <!-- Form con elementi base -->
+    <form id="miaForm">
+      <!-- Campo di testo per il nome -->
+      <label for="nome">Nome:</label>
+      <input type="text" id="nome" name="nome" required />
+
+      <!-- Pulsanti radio per il genere -->
+      <label for="genere">Genere:</label>
+      <input type="radio" id="maschio" name="genere" value="maschio" /> Maschio
+      <input type="radio" id="femmina" name="genere" value="femmina" /> Femmina
+
+      <!-- Caselle di spunta per le competenze -->
+      <label for="competenze">Competenze:</label>
+      <input
+        type="checkbox"
+        id="competenza1"
+        name="competenze"
+        value="JavaScript"
+      />
+      JavaScript
+      <input type="checkbox" id="competenza2" name="competenze" value="PHP" />
+      Python
+
+      <!-- Menu a discesa per la nazione -->
+      <label for="nazione">Nazione:</label>
+      <select id="nazione" name="nazione">
+        <option value="ITA">ITA</option>
+        <option value="UK">UK</option>
+      </select>
+
+      <!-- Area di testo per il messaggio -->
+      <label for="messaggio">Messaggio:</label>
+      <textarea id="messaggio" name="messaggio"></textarea>
+
+      <!-- Pulsante di invio -->
+      <input type="submit" value="Invia" />
+      <br /><br />
+      <p>Prova</p>
+    </form>
+  </body>
+</html>

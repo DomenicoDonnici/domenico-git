@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Form Generato da JSON e JavaScript</title>
+    <style>
+      /* Stile base */
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #e6f7ff; /* Sfondo azzurro chiaro */
+        height: 100vh;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      /* Stile per il contenitore del form */
+      #contenitore {
+        background-color: #b3e0ff; /* Sfondo azzurro */
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Ombra leggera */
+      }
+
+      /* Stile per gli elementi del form */
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      label {
+        margin-bottom: 5px;
+      }
+
+      input[type="submit"] {
+        align-self: center;
+        background-color: #007bff; /* Colore pulsante azzurro */
+        color: #fff;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #0056b3; /* Colore pulsante azzurro scuro al passaggio del mouse */
+      }
+    </style>
+
+    <script>
+      window.onload = function () {
+        // Dati del form in formato JSON
+        const datiForm = [
+          {
+            type: "text",
+            id: "nome",
+            name: "nome",
+            label: "Nome:",
+            required: true,
+          },
+          {
+            type: "radio",
+            id: "maschio",
+            name: "genere",
+            label: "Genere:",
+            text: "Maschio", // Questo campo 'text' rappresenta il testo da visualizzare vicino al pulsante radio
+            value: "Maschio",
+          },
+          {
+            type: "radio",
+            id: "femmina",
+            name: "genere",
+            text: "Femmina", // Similmente, questo campo 'text' rappresenta il testo da visualizzare vicino al pulsante radio
+            value: "Femmina",
+          },
+        ];
+
+        // Creazione del form
+        const form = document.createElement("form");
+        form.id = "miaForm";
+
+        // Ciclo per generare gli elementi del form basati sui dati JSON
+        datiForm.forEach((dato) => {
+          const elemento = document.createElement("input");
+          elemento.type = dato.type;
+          elemento.id = dato.id;
+          elemento.name = dato.name;
+          elemento.value = dato.value;
+          if (dato.required) elemento.required = true;
+
+          const etichetta = document.createElement("label");
+          etichetta.setAttribute("for", dato.id);
+          etichetta.innerText = dato.label || "";
+
+          form.appendChild(etichetta);
+          form.appendChild(elemento);
+
+          // Se il campo 'text' è presente, creiamo un elemento di testo da aggiungere dopo l'elemento del form
+          if (dato.text) {
+            const testoElemento = document.createTextNode(" " + dato.text);
+            form.appendChild(testoElemento);
+          }
+        });
+
+        // Creazione e aggiunta del pulsante di invio
+        const pulsanteInvio = document.createElement("input");
+        pulsanteInvio.type = "submit";
+        pulsanteInvio.value = "Invia";
+        form.appendChild(pulsanteInvio);
+
+        // Creazione di un contenitore per il form
+        const contenitore = document.createElement("div");
+        contenitore.id = "contenitore";
+        contenitore.appendChild(form);
+
+        // Aggiunta del contenitore con il form al body del documento
+        document.body.appendChild(contenitore);
+      };
+    </script>
+  </head>
+
+  <body>
+    <!-- Il form verrà generato qui -->
+  </body>
+</html>

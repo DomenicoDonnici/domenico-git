@@ -1,0 +1,40 @@
+<!-- 2° file codice HTML completamente generato da JavaScript -->
+
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Form Generato da JavaScript</title>
+    <script>
+      window.onload = function () {
+        // Creazione del form
+        const form = document.createElement("form");
+        form.id = "mioForm";
+
+        // Creazione e aggiunta dell'input per il nome
+        const etichettaNome = document.createElement("label");
+        etichettaNome.setAttribute("for", "nome");
+        etichettaNome.innerText = "Nome:";
+        const inputNome = document.createElement("input");
+        inputNome.type = "text";
+        inputNome.id = "nome";
+        inputNome.name = "nome";
+        inputNome.required = true;
+        form.appendChild(etichettaNome);
+        form.appendChild(inputNome);
+
+        // Creazione e aggiunta del pulsante di invio
+        const pulsanteInvio = document.createElement("input");
+        pulsanteInvio.type = "submit";
+        pulsanteInvio.value = "Invia";
+        form.appendChild(pulsanteInvio);
+
+        // Aggiunta del form al body del documento
+        document.body.appendChild(form);
+      };
+    </script>
+  </head>
+  <body>
+    <!-- Il form verrà generato qui -->
+  </body>
+</html>
